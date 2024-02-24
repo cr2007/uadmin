@@ -1,0 +1,25 @@
+{
+    "name": "uAdmin Dev Container",
+    "image": "mcr.microsoft.com/devcontainers/go",
+    "features": {
+        "ghcr.io/devcontainers/features/oryx:1": {}
+    },
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "golang.Go",
+                "eamodio.gitlens",
+                "VisualStudioExptTeam.vscodeintellicode",
+                "mhutchie.git-graph"
+            ]
+        }
+    },
+    "forwardPorts": [8080],
+    "portsAttributes": {
+        "8080": {
+            "label": "uAdmin App",
+            "onAutoForward": "notify"
+        }
+    },
+    "postCreateCommand": "go get -u github.com/uadmin/uadmin/ ; go install github.com/uadmin/uadmin/cmd/uadmin@latest"
+}
